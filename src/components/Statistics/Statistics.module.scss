@@ -1,0 +1,12 @@
+.counter {
+margin-left: 10px;
+}
+
+.statList {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat:not(:last-child) {
+  margin-bottom: 10px;
+}
