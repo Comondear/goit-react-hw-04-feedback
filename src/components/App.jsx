@@ -39,11 +39,6 @@ class App extends Component {
     return values.reduce((acc, value) => acc + value, 0);
   };
 
-  // countPositiveFeedbackPercentage = (total, good) => {
-  //   const percentage = Math.round((good / total) * 100);
-  //   return percentage;
-  // };
-
   countPositiveFeedbackPercentage = () => {
     const positiveFeedback = this.stateEntries().reduce(
       (acc, [key, value]) => (key === 'good' ? acc + value : acc),
@@ -52,17 +47,9 @@ class App extends Component {
     return ((positiveFeedback / this.countTotalFeedback()) * 100).toFixed();
   };
 
-  // checkForData = () => {
-  //   return Object.values(this.state).some(item => item > 0);
-  // };
-
   render() {
     const options = Object.keys(this.state);
     return (
-      // <div className={scss.counter}>
-      //   <h2 className={scss.mainTitle}>Please leave feedback</h2>
-      //   <FeedbackOptions />
-      //   <h3 className={scss.statistics}>Statistics</h3>
       <>
         <Section title="Please leave feedback">
           <Box display="flex" gridGap="10px">
@@ -90,13 +77,5 @@ class App extends Component {
     );
   }
 }
-//   render() {
-//     return (
-//       <>
-//         <Expresso />
-//       </>
-//     );
-//   }
-// }
 
 export default App;
