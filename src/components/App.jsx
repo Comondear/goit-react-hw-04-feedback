@@ -15,23 +15,13 @@ class App extends Component {
   static propTypes = {};
 
   state = {
-    good: this.props.initialValue,
-    neutral: this.props.initialValue,
-    bad: this.props.initialValue,
-  };
-
-  stateEntries = () => {
-    return Object.entries(this.state);
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
 
   handleFeedback = option => {
     this.setState(prevState => ({ [option]: prevState[option] + 1 }));
-  };
-
-  countFeedback = key => {
-    this.setState(prevState => ({
-      [key]: prevState[key] + 1,
-    }));
   };
 
   countTotalFeedback = () => {
@@ -40,11 +30,7 @@ class App extends Component {
   };
 
   countPositiveFeedbackPercentage = () => {
-    const positiveFeedback = this.stateEntries().reduce(
-      (acc, [key, value]) => (key === 'good' ? acc + value : acc),
-      0
-    );
-    return ((positiveFeedback / this.countTotalFeedback()) * 100).toFixed();
+    return ((this.state.good / this.countTotalFeedback()) * 100).toFixed();
   };
 
   render() {
